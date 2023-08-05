@@ -1,29 +1,8 @@
 from sys import exit
 
-def check(board):
-    if(board[0][0]==board[0][1]==board[0][2] and board[0][0]!=" "):
-        print("You win!")
-        exit(0)
-    elif(board[1][0]==board[1][1]==board[1][2] and board[1][0]!=" "):
-        print("You win!")
-        exit(0)
-    elif(board[2][0]==board[2][1]==board[2][2] and board[2][0]!=" "):
-        print("You win!")
-        exit(0)
-    elif(board[0][0]==board[1][0]==board[2][0] and board[0][0]!=" "):
-        print("You win!")
-        exit(0)
-    elif(board[0][1]==board[1][1]==board[2][1] and board[0][1]!=" "):
-        print("You win!")
-        exit(0)
-    elif(board[0][2]==board[1][2]==board[2][2] and board[0][2]!=" "):
-        print("You win!")
-        exit(0)
-    elif(board[0][0]==board[1][1]==board[2][2] and board[0][0]!=" "):
-        print("You win!")
-        exit(0)
-    elif(board[0][2]==board[1][1]==board[2][0] and board[2][0]!=" "):
-        print("You win!")
+def check(board,mark):
+    if(board[0][0]==board[0][1]==board[0][2]!='' or board[1][0]==board[1][1]==board[1][2]!='' or board[2][0]==board[2][1]==board[2][2]!='' or board[0][0]==board[1][0]==board[2][0]!='' or board[0][1]==board[1][1]==board[2][1]!='' or board[0][2]==board[1][2]==board[2][2]!='' or board[0][0]==board[1][1]==board[2][2]!='' or board[0][2]==board[1][1]==board[2][0]!=''):
+        print(mark,"Wins!")
         exit(0)
     else:
         print("Continue")
@@ -50,7 +29,7 @@ def add(board, mark):
     if(board[row][column]==' '):
         board[row][column]=mark
         boardprint(board)
-        check(board)
+        check(board,mark)
     else:
         print("Already filled")
         add(board,mark)       
